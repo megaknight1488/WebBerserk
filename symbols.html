@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Berserk Memorial — символы вселенной: клеймо, бехелит, железный коготь."
+    />
+    <title>Символы — Berserk Memorial</title>
+    <link id="favicon-link" rel="icon" href="assets/stigma.jpg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="scroll-blade-track" aria-hidden="true">
+      <div class="scroll-blade-fill" id="scroll-blade"></div>
+    </div>
+
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+      <div class="age-gate__panel">
+        <h1 class="age-gate__title" id="age-title">WARNING</h1>
+        <p class="age-gate__text">
+          Сайт содержит сцены насилия и триггерные темы (Берсерк). Нажимая «Войти», вы подтверждаете, что вам
+          18+.
+        </p>
+        <div class="age-gate__actions">
+          <button type="button" class="btn btn--primary btn--angled" id="age-confirm">Войти</button>
+          <button type="button" class="btn btn--angled" id="age-leave">Уйти</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="page-nav">
+      <a class="page-nav__home" href="index.html" lang="en">BERSERK</a>
+      <nav class="page-nav__links" aria-label="Разделы сайта">
+        <a class="btn btn--angled" href="anime.html">Anime</a>
+        <a class="btn btn--angled" href="characters.html">Heroes</a>
+        <a class="btn btn--angled is-current" href="symbols.html" aria-current="page">Symbols</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section section--page" id="symbols" aria-labelledby="symbols-title">
+        <div class="content-wrap">
+          <h1 class="section__title" id="symbols-title">Символы вселенной</h1>
+          <p class="section__lead">
+            Клеймо, Бехелит, Железный Коготь — знаки, что преследуют героев сильнее любого меча.
+          </p>
+          <div class="symbol-grid">
+            <article class="character-card" style="pointer-events: none">
+              <div class="character-card__art" style="min-height: 140px">
+                <img src="assets/stigma.jpg" alt="Клеймо жертвы" class="symbol-card__img" />
+              </div>
+              <div class="character-card__body">
+                <h2 class="character-card__name">Клеймо жертвы</h2>
+                <p class="character-card__quote">Отметина, что тянет к свершившемуся роковому узлу.</p>
+              </div>
+            </article>
+            <article class="character-card" style="pointer-events: none">
+              <div class="character-card__art" style="min-height: 140px">
+                <img src="assets/beherit.jpg" alt="Бехелит" class="symbol-card__img" />
+              </div>
+              <div class="character-card__body">
+                <h2 class="character-card__name">Бехелит</h2>
+                <p class="character-card__quote">«Яйцо короля» — ключ к двери, которую не открывают без цены.</p>
+              </div>
+            </article>
+            <article class="character-card" style="pointer-events: none">
+              <div class="character-card__art" style="min-height: 140px">
+                <img src="assets/hand4.jpg" alt="Железный коготь" class="symbol-card__img" />
+              </div>
+              <div class="character-card__body">
+                <h2 class="character-card__name">Рука / коготь</h2>
+                <p class="character-card__quote">Судьба сжимает кольцо — и не отпускает даже мёртвых.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">
+        Свет погас, но тень осталась вечной.<br />
+        Вечная память Кэнтаро Миуре (1966–2021).
+      </p>
+      <nav class="footer__links" aria-label="Вики и ресурсы">
+        <a href="https://ru.wikipedia.org/wiki/Berserk" target="_blank" rel="noopener noreferrer">Википедия (RU)</a>
+        <a href="https://en.wikipedia.org/wiki/Berserk_(manga)" target="_blank" rel="noopener noreferrer">Википедия (EN)</a>
+        <a href="https://berserk.fandom.com/wiki/Berserk_Wiki" target="_blank" rel="noopener noreferrer">Fandom Wiki</a>
+      </nav>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

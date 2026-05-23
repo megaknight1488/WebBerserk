@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авторизация</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      position: relative;
+    }
+    
+    .auth-container {
+      background: rgba(20, 20, 25, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      background-image: url(/assets/berserkWIKI.jpg);
+    }
+    
+    .auth-container h2 {
+      color: #c41e1e;
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: "Russian Gothic";
+      font-size: 40px;
+      letter-spacing: 2px;
+    }
+    
+    .auth-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: #000000;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .tab-btn.active {
+      color: #c41e1e;
+      border-bottom: 2px solid #c41e1e;
+    }
+    
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .auth-form.hidden {
+      display: none;
+    }
+    
+    .auth-form input {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .auth-form input:focus {
+      outline: none;
+      border-color: #c41e1e;
+    }
+    
+    .auth-form button {
+      padding: 12px;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    
+    .auth-form button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #999;
+      text-decoration: none;
+    }
+    
+    .back-link:hover {
+      color: #c41e1e;
+    }
+    
+    .error-msg {
+      color: #c41e1e;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body class="auth-page">
+    <div class="particles" id="particles" aria-hidden="true"></div>
+  <div class="auth-container">
+    <h2> Вход в преисподнюю </h2>
+    
+    <div class="auth-tabs">
+      <button class="tab-btn active" data-tab="login">Вход</button>
+      <button class="tab-btn" data-tab="register">Регистрация</button>
+    </div>
+
+    <!-- Форма входа -->
+    <form id="loginForm" class="auth-form">
+      <input type="text" id="loginUsername" placeholder="Имя пользователя или Email" required>
+      <input type="password" id="loginPassword" placeholder="Пароль" required>
+      <div id="loginError" class="error-msg"></div>
+      <button type="submit" class="btn btn--angled">Войти</button>
+    </form>
+    
+    <!-- Форма регистрации -->
+    <form id="registerForm" class="auth-form hidden">
+      <input type="text" id="regUsername" placeholder="Имя пользователя" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Пароль (мин. 6 символов)" required>
+      <input type="password" id="regConfirmPassword" placeholder="Подтвердите пароль" required>
+      <div id="regError" class="error-msg"></div>
+      <button type="submit" class="btn btn--angled">Зарегистрироваться</button>
+    </form>
+    
+    <a href="index.html" class="back-link">← Вернуться на главную</a>
+  </div>
+  
+  <script>
+    // Переключение между вкладками
+    const tabs = document.querySelectorAll('.tab-btn');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        if (tab.dataset.tab === 'login') {
+          loginForm.classList.remove('hidden');
+          registerForm.classList.add('hidden');
+        } else {
+          loginForm.classList.add('hidden');
+          registerForm.classList.remove('hidden');
+        }
+      });
+    });
+    
+    // Обработка входа
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+      const errorDiv = document.getElementById('loginError');
+      
+      // Здесь ваш API запрос
+      errorDiv.style.display = 'block';
+      errorDiv.textContent = 'Демо-режим: вход через бэкенд пока не настроен';
+      
+      // Раскомментируйте для реального API:
+      /*
+      try {
+        const response = await fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorDiv.style.display = 'block';
+          errorDiv.textContent = data.error || 'Ошибка входа';
+        }
+      } catch (error) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = 'Ошибка соединения с сервером';
+      }
+      */
+    });
+    
+    // Обработка регистрации
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      const errorDiv = document.getElementById('regError');
+      
+      if (password !== confirmPassword) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = 'Пароли не совпадают';
+        return;
+      }
+      
+      if (password.length < 6) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = 'Пароль должен быть не менее 6 символов';
+        return;
+      }
+      
+      errorDiv.style.display = 'block';
+      errorDiv.textContent = 'Демо-режим: регистрация через бэкенд пока не настроена';
+      
+      // Раскомментируйте для реального API:
+      /*
+      try {
+        const response = await fetch('http://localhost:3000/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          alert('Регистрация успешна! Теперь вы можете войти.');
+          document.querySelector('[data-tab="login"]').click();
+        } else {
+          errorDiv.style.display = 'block';
+          errorDiv.textContent = data.error || 'Ошибка регистрации';
+        }
+      } catch (error) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = 'Ошибка соединения с сервером';
+      }
+      */
+    });
+    
+  </script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

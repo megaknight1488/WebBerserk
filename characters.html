@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Berserk Memorial — персонажи вселенной Берсерк, досье и свитки."
+    />
+    <title>Персонажи — Berserk Memorial</title>
+    <link id="favicon-link" rel="icon" href="assets/stigma.jpg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="scroll-blade-track" aria-hidden="true">
+      <div class="scroll-blade-fill" id="scroll-blade"></div>
+    </div>
+
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+
+    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+      <div class="age-gate__panel">
+        <h1 class="age-gate__title" id="age-title">WARNING</h1>
+        <p class="age-gate__text">
+          Сайт содержит сцены насилия и триггерные темы (Берсерк). Нажимая «Войти», вы подтверждаете, что вам
+          18+.
+        </p>
+        <div class="age-gate__actions">
+          <button type="button" class="btn btn--primary btn--angled" id="age-confirm">Войти</button>
+          <button type="button" class="btn btn--angled" id="age-leave">Уйти</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="page-nav">
+      <a class="page-nav__home" href="index.html" lang="en">BERSERK</a>
+      <nav class="page-nav__links" aria-label="Разделы сайта">
+        <a class="btn btn--angled" href="anime.html">Anime</a>
+        <a class="btn btn--angled is-current" href="characters.html" aria-current="page">Heroes</a>
+        <a class="btn btn--angled" href="symbols.html">Symbols</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section section--page" id="characters" aria-labelledby="characters-title">
+        <div class="content-wrap">
+          <h1 class="section__title" id="characters-title">Читать о персонажах</h1>
+          <p class="section__lead">
+            Гатс, Гриффит, Каска — те, чья воля и предательство определили судьбу Золотого века.
+          </p>
+          <div class="characters-grid" id="characters-root"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">
+        Свет погас, но тень осталась вечной.<br />
+        Вечная память Кэнтаро Миуре (1966–2021).
+      </p>
+      <nav class="footer__links" aria-label="Вики и ресурсы">
+        <a href="https://ru.wikipedia.org/wiki/Berserk" target="_blank" rel="noopener noreferrer">Википедия (RU)</a>
+        <a href="https://en.wikipedia.org/wiki/Berserk_(manga)" target="_blank" rel="noopener noreferrer">Википедия (EN)</a>
+        <a href="https://berserk.fandom.com/wiki/Berserk_Wiki" target="_blank" rel="noopener noreferrer">Fandom Wiki</a>
+      </nav>
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-scroll" id="modal-scroll" role="document">
+        <span class="modal-scroll__edge" aria-hidden="true"></span>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Закрыть досье">×</button>
+        <div class="modal-scroll__inner" id="modal-scroll-inner">
+          <div id="modal-body"></div>
+        </div>
+        <div class="modal-scroll__shade modal-scroll__shade--top" aria-hidden="true"></div>
+        <div class="modal-scroll__shade modal-scroll__shade--bottom" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

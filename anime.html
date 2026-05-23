@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Berserk Memorial — эпизоды аниме 1997, плеер и превью серий."
+    />
+    <title>Эпизоды — Berserk Memorial</title>
+    <link id="favicon-link" rel="icon" href="assets/stigma.jpg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="scroll-blade-track" aria-hidden="true">
+      <div class="scroll-blade-fill" id="scroll-blade"></div>
+    </div>
+
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+      <div class="age-gate__panel">
+        <h1 class="age-gate__title" id="age-title">WARNING</h1>
+        <p class="age-gate__text">
+          Сайт содержит сцены насилия и триггерные темы (Берсерк). Нажимая «Войти», вы подтверждаете, что вам
+          18+.
+        </p>
+        <div class="age-gate__actions">
+          <button type="button" class="btn btn--primary btn--angled" id="age-confirm">Войти</button>
+          <button type="button" class="btn btn--angled" id="age-leave">Уйти</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="page-nav">
+      <a class="page-nav__home" href="index.html" lang="en">BERSERK</a>
+      <nav class="page-nav__links" aria-label="Разделы сайта">
+        <a class="btn btn--angled is-current" href="anime.html" aria-current="page">Anime</a>
+        <a class="btn btn--angled" href="characters.html">Heroes</a>
+        <a class="btn btn--angled" href="symbols.html">Symbols</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section section--page" id="anime" aria-labelledby="anime-title">
+        <div class="content-wrap">
+          <h1 class="section__title" id="anime-title">Берсерк — Эпизоды</h1>
+          <p class="section__lead">
+            Мир не принадлежит людям. Им правят те, кто стоит выше — боги, демоны и судьба, сплетенная из костей
+            и предательств. В центре этой бури — Гатс, Чёрный Мечник.
+          </p>
+
+          <div class="anime-layout">
+            <div class="player-shell" id="player-shell">
+              <div class="player-frame-wrap" id="player-wrap">
+                <iframe
+                  id="yt-player"
+                  src="https://www.youtube.com/embed/6QkMrXodGQQ?rel=0"
+                  title="Berserk Memorial Edition — официальный PV (YouTube)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+                <video
+                  id="local-player"
+                  class="local-player"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  tabindex="0"
+                  hidden
+                  title="Берсерк (1997) — серия 1"
+                ></video>
+              </div>
+              <p class="player-label" id="player-caption"></p>
+              <div class="player-ep-nav" role="group" aria-label="Предыдущая или следующая серия">
+                <button type="button" class="btn btn--angled" id="episode-prev">← Предыдущая серия</button>
+                <button type="button" class="btn btn--angled" id="episode-next">Следующая серия →</button>
+              </div>
+              <p class="player-shortcuts" id="player-shortcuts" aria-label="Горячие клавиши">
+                <kbd>←</kbd> <kbd>→</kbd> — −10 / +10 сек · <kbd>Пробел</kbd> — пауза · <kbd>F</kbd> — полный экран
+              </p>
+            </div>
+            <div class="episodes">
+              <h2 class="episodes__heading">Превью серий (25 × классика 1997)</h2>
+              <div class="episode-grid" id="episode-grid" role="list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">
+        Свет погас, но тень осталась вечной.<br />
+        Вечная память Кэнтаро Миуре (1966–2021).
+      </p>
+      <nav class="footer__links" aria-label="Вики и ресурсы">
+        <a href="https://ru.wikipedia.org/wiki/Berserk" target="_blank" rel="noopener noreferrer">Википедия (RU)</a>
+        <a href="https://en.wikipedia.org/wiki/Berserk_(manga)" target="_blank" rel="noopener noreferrer">Википедия (EN)</a>
+        <a href="https://berserk.fandom.com/wiki/Berserk_Wiki" target="_blank" rel="noopener noreferrer">Fandom Wiki</a>
+      </nav>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
